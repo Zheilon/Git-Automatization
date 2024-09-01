@@ -13,7 +13,7 @@ git commit -m "%comment%"
 
 set /p confirm=Push? s / n: 
 
-if "%confirm%" EQU "n" goto logs
+if "%confirm%" EQU "n" goto pulling
 
 for /f "tokens=*" %%i in ('git branch') do set b=%%i
 
@@ -23,11 +23,11 @@ set /p branch=Ingresa Rama:
 git push origin %branch%
 pause
 
+:pulling
 cls
 set /p pull=pull? s / n: 
 if "%pull%" EQU "n" goto logs
 for /f "tokens=*" %%i in ('git branch -r') do set bG=%%i
-
 echo Current GitHub Branch: %bG%
 set /p pullBranch=Ingresa Rama: 
 git pull origin %pullBranch%
