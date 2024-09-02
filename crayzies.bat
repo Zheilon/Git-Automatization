@@ -1,9 +1,5 @@
 @echo off
 
-@echo off
-powershell -command "$obj = New-Object -ComObject Shell.Application; $obj.MinimizeAll()"
-
-
 set /p myDirectory=Direccion: 
 cd %myDirectory%
 
